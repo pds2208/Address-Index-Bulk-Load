@@ -1,8 +1,8 @@
-package app.configuration.impl
+package app.producer.impl
 
 import java.nio.file.Path
 
-import app.configuration.FileArrived
+import app.producer.FileArrived
 import app.validation.Validation
 import com.google.inject.Inject
 

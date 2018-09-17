@@ -1,12 +1,14 @@
 package app.producer.impl
 
 import app.producer.{AddressLine, SendMessage}
+import app.util.RabbitConnection
+import com.google.inject.Inject
 import com.typesafe.scalalogging.Logger
 import org.json4s._
-import org.json4s.native.Serialization.writePretty
+import org.json4s.native.Serialization.write
 import org.slf4j.LoggerFactory
 
-class SendToRabbit extends SendMessage {
+class SendToRabbit@Inject()(rabbit: RabbitConnection) extends SendMessage {
 
   val logger = Logger(LoggerFactory.getLogger("ToRabbit"))
   case class Address (addresses: List[AddressLine])
@@ -15,7 +17,8 @@ class SendToRabbit extends SendMessage {
 
     implicit val formats: DefaultFormats.type = DefaultFormats
 
-    println(writePretty(Address(address)))
+    rabbit.publish(write(Address(address)))
+    logger.info("Message sent")
 
   }
 

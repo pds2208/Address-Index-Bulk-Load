@@ -1,5 +1,0 @@
-logging.level.org.springframework.web: info
-logging.level.org.springframework.security: info
-logging.level.org.springframework.web-security: info
-
-logging.level.app: info

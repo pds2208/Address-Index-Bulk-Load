@@ -2,7 +2,7 @@ package app.validation.impl
 
 import java.nio.file.{Path, Paths}
 
-import app.configuration.DirectoryPath
+import app.config.BulkConfig
 import app.producer.{AddressLine, SendMessage}
 import app.validation.Validation
 import com.google.inject.Inject
@@ -11,12 +11,12 @@ import org.slf4j.LoggerFactory
 
 import scala.io.Source
 
-class  CSVValidation @Inject()(directory: DirectoryPath, rabbit: SendMessage) extends Validation {
+class  CSVValidation @Inject()(config: BulkConfig, rabbit: SendMessage) extends Validation {
 
   val logger = Logger(LoggerFactory.getLogger("CSV-Validation"))
 
   override def fileArrived(file: Path): Unit = {
-    val s = Paths.get(directory.directory.toString , file.toString).toString
+    val s = Paths.get(config.directoryPath, file.toString).toString
     parseFile(s) match {
       case Some(items) => rabbit.send(items)
       case None => logger.warn(s"File: $s is invalid")
