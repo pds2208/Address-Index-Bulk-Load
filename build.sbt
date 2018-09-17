@@ -1,10 +1,11 @@
 
 
 name := "Address Index Bulk Load"
-organization in ThisBuild := "uk.gov.ons"
+organization in ThisBuild := "Office for National Statistics"
 scalaVersion in ThisBuild := "2.12.6"
 
-routesImport := Seq.empty // unused imports warning annoyance
+routesImport := Seq.empty
+
 
 lazy val global = project
   .in(file("."))
@@ -19,7 +20,11 @@ lazy val global = project
   .settings(
     name := "common",
     settings,
-    libraryDependencies ++= commonDependencies
+    libraryDependencies ++= commonDependencies ++ Seq(
+      dependencies.guice,
+      dependencies.rabbitMQ,
+      dependencies.typesafeConfig
+    )
   )
 
 lazy val csv = project
@@ -106,7 +111,7 @@ lazy val compilerOptions = Seq(
     "-Ywarn-inaccessible", // Warn about inaccessible types in method signatures
     "-Ywarn-dead-code", // Warn when dead code is identified
     "-Ywarn-unused", // Warn when local and private vals, vars, defs, and types are unused
-    "-Ywarn-unused-import", //  Warn when imports are unused (don't want IntelliJ to do it automatically)
+ //   "-Ywarn-unused-import", //  Warn when imports are unused (don't want IntelliJ to do it automatically)
     "-Ywarn-numeric-widen" // Warn when numerics are widened
 )
 

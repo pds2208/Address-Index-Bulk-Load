@@ -1,12 +1,10 @@
-package config
+package util.config
 
-import com.typesafe.config.{Config, ConfigFactory}
+import com.typesafe.config.ConfigFactory
 
-case class BulkConfig()  {
+case class RabbitConfig() {
 
-  val conf : Config = ConfigFactory.load()
-
-  val directoryPath: String = conf.getString("bulk.csv.directoryPath")
+  def conf: Config = ConfigFactory.load()
   val userName: String = conf.getString("bulk.csv.rabbit.userName")
   val password: String = conf.getString("bulk.csv.rabbit.password")
   val virtualHost: String = conf.getString("bulk.csv.rabbit.virtualHost")
@@ -16,5 +14,4 @@ case class BulkConfig()  {
   val exchangeName: String = conf.getString("bulk.csv.rabbit.exchangeName")
   val queueName: String = conf.getString("bulk.csv.rabbit.queueName")
   val routingKey: String = conf.getString("bulk.csv.rabbit.routingKey")
-
 }

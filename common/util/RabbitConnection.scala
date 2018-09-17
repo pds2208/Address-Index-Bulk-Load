@@ -1,10 +1,9 @@
 package util
 
-import com.rabbitmq.client.{Channel, Connection, ConnectionFactory}
-import com.google.inject.Inject
-import config.BulkConfig
+import com.rabbitmq.client.AMQP.Connection
+import com.rabbitmq.client.AMQP.Channel
 
-case class RabbitConnection @Inject()(config: BulkConfig) {
+case class RabbitConnection @Inject()(config: RabbitConfig) {
 
   val userName: String = config.userName
   val password: String = config.password
