@@ -1,4 +1,4 @@
-package app.producer
+package producer
 
 trait SendMessage {
   def send(items: List[AddressLine])

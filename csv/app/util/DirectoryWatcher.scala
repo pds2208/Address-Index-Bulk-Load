@@ -1,13 +1,13 @@
-package app.util
+package util
 
 import java.io.IOException
 import java.nio.file._
 
-import app.config.BulkConfig
-import app.producer.FileArrived
 import com.google.inject.Inject
 import com.typesafe.scalalogging.Logger
+import config.BulkConfig
 import org.slf4j.LoggerFactory
+import producer.FileArrived
 
 import scala.collection.JavaConverters._
 import scala.util.control.Breaks._

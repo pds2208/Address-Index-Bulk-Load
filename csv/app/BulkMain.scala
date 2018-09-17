@@ -1,9 +1,9 @@
-package app
 
-import app.util.DirectoryWatcher
 import com.google.inject.Guice
 import com.typesafe.scalalogging.Logger
+import modules.AddressModule
 import org.slf4j.LoggerFactory
+import util.DirectoryWatcher
 
 object BulkMain extends App {
 

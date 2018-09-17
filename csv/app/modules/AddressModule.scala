@@ -1,10 +1,10 @@
-package app
+package modules
 
-import app.producer.{FileArrived, SendMessage}
-import app.producer.impl.{CSVFileArrived, SendToRabbit}
-import app.validation.Validation
-import app.validation.impl.CSVValidation
 import com.google.inject.AbstractModule
+import producer.{FileArrived, SendMessage}
+import producer.impl.{CSVFileArrived, SendToRabbit}
+import validation.Validation
+import validation.impl.CSVValidation
 
 class AddressModule extends AbstractModule {
 

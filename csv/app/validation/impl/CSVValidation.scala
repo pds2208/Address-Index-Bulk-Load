@@ -1,13 +1,13 @@
-package app.validation.impl
+package validation.impl
 
 import java.nio.file.{Path, Paths}
 
-import app.config.BulkConfig
-import app.producer.{AddressLine, SendMessage}
-import app.validation.Validation
 import com.google.inject.Inject
 import com.typesafe.scalalogging.Logger
+import config.BulkConfig
 import org.slf4j.LoggerFactory
+import producer.{AddressLine, SendMessage}
+import validation.Validation
 
 import scala.io.Source
 

@@ -1,8 +1,8 @@
-package app.util
+package util
 
 import com.rabbitmq.client.{Channel, Connection, ConnectionFactory}
-import app.config.BulkConfig
 import com.google.inject.Inject
+import config.BulkConfig
 
 case class RabbitConnection @Inject()(config: BulkConfig) {
 

@@ -1,9 +1,9 @@
-package app.producer.impl
+package producer.impl
 
 import java.nio.file.Path
 
-import app.producer.FileArrived
-import app.validation.Validation
+import producer.FileArrived
+import validation.Validation
 import com.google.inject.Inject
 
 class CSVFileArrived @Inject() (validation: Validation) extends FileArrived {

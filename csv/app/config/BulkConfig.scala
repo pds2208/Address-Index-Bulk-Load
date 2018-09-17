@@ -1,4 +1,4 @@
-package app.config
+package config
 
 import com.typesafe.config.{Config, ConfigFactory}
 

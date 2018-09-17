@@ -1,0 +1,44 @@
+###
+#  summary: Post bulk addresses.
+#  description: Will process all `BulkQuery` items in the `BulkBody` returns reduced information on found addresses (uprn, formatted address).
+#  parameters:
+#    - name: limitperaddress
+#      description: Specifies the maximum number of matches to return per address (default 5).
+#    - name: startdate
+#      description: Date that address was first loaded into the database (yyyy-MM-dd). Required if endDate given.
+#    - name: enddate
+#      description: Date that address ceased to exist in the database (yyyy-MM-dd). Required if startDate given.
+#    - name: historical
+#      description: Include historical addresses (default true)
+#    - name: matchthreshold
+#      description: minimum confidence score (percentage) for match to be included in results (default 5.0)
+#  responses:
+#    200:
+#      description: success
+#      schema:
+#        $ref: "#/definitions/AddressBulkResponse"
+###
+POST    /bulk               controllers.BatchController.bulk(limitperaddress: Option[String], startdate: Option[String], enddate: Option[String], historical: Option[String], matchthreshold: Option[String])
+
+###
+#  summary: Post bulk addresses for a full address output.
+#  description: Will process all `BulkQuery` items in the `BulkBody` this version is slower and more memory-consuming
+#               since all the information on found addresses is returned.
+#  parameters:
+#    - name: limitperaddress
+#      description: Specifies the maximum number of matches to return per address (default 5).
+#    - name: startdate
+#      description: Date that address was first loaded into the database (yyyy-MM-dd). Required if endDate given.
+#    - name: enddate
+#      description: Date that address ceased to exist in the database (yyyy-MM-dd). Required if startDate given.
+#    - name: historical
+#      description: Include historical addresses (default true)
+#    - name: matchthreshold
+#      description: minimum confidence score (percentage) for match to be included in results (default 5.0)
+#  responses:
+#    200:
+#      description: success
+#      schema:
+#        $ref: "#/definitions/uk.gov.ons.addressIndex.model.server.response.bulk.AddressBulkResponseContainer"
+###
+POST    /bulk-full          controllers.BatchController.bulkFull(limitperaddress: Option[String], startdate: Option[String], enddate: Option[String], historical: Option[String], matchthreshold: Option[String])

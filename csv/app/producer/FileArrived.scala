@@ -1,4 +1,4 @@
-package app.producer
+package producer
 
 import java.nio.file.Path
 
