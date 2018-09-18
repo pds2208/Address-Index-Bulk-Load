@@ -52,7 +52,9 @@ lazy val rest = project
       dependencies.json4sJackson,
       dependencies.json4sNative,
       dependencies.typesafeConfig,
-      dependencies.swaggerPlay
+      dependencies.swaggerPlay,
+      dependencies.webjarsPlay,
+      dependencies.swaggerUI
     )
   )
   .dependsOn(
@@ -71,7 +73,11 @@ lazy val dependencies =
     val logbackV          = "1.2.3"
     val scalaLoggingV     = "3.9.0"
     val swaggerPlayV      = "1.6.0"
+    val webjarsPlayV       = "2.6.3"
+    val swaggerUIV        = "3.18.2"
 
+    val webjarsPlay       = "org.webjars"                %% "webjars-play"    % webjarsPlayV
+    val swaggerUI         = "org.webjars"                 % "swagger-ui"      % swaggerUIV
     val guice             = "com.google.inject"           % "guice"           % guiceV
     val json4sJackson     = "org.json4s"                 %% "json4s-jackson"  % json4sV
     val json4sNative      = "org.json4s"                 %% "json4s-native"   % json4sV
